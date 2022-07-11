@@ -1,5 +1,10 @@
 import event from '../models/event';
 
+export const getEvents = async(req, res) => {
+    const events = await event.find();
+    res.json(events);
+}
+
 export const createEvent = async (req, res) => {
     const {titleEvent, descriptionEvent, startDate, endDate, idTeamWin, idTeamLoser, winPoints, loserPoints} = req.body;
     const newEvent = new event({titleEvent, descriptionEvent, startDate, endDate, idTeamWin, idTeamLoser, winPoints, loserPoints});
@@ -17,8 +22,4 @@ export const updateEventById = async (req, res) => {
         new: true,
     });
     res.status(204).json(updatedEvent);
-}
-
-export const deleteEventById = (req, res) => {
-    
 }
