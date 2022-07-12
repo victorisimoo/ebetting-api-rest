@@ -21,5 +21,5 @@ export const updateEventById = async (req, res) => {
     const updatedEvent = await event.findByIdAndUpdate(req.params.idEvent, req.body, {
         new: true,
     });
-    res.status(204).json(updatedEvent);
+    res.status(200).json(updatedEvent);
 }
