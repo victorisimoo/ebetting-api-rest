@@ -1,5 +1,6 @@
 import app from './app';
 import './database';
 
-app.listen(process.env.PORT || 4075);
-console.log('Server listen on port: ', 4075)
+app.set('port', process.env.PORT || 3000);
+app.listen(app.get('port'));
+console.log('Server listen on port: ', app.get('port'))
